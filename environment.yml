@@ -1,4 +1,4 @@
-name: phonon
+name: phonons
 
 channels:
 
@@ -13,12 +13,7 @@ dependencies:
   - notebook>=7.0.0
   - matplotlib
   - numpy<2.0.0
-  - scipy
-
-  # LAMMPS NEEDS TO BE INSTALLED FROM liblammps.so
-  # It's important to have mpi4py installed BEFORE
-  # building the Python API of LAMMPS!
-  - mpi4py  
+  - scipy 
 
   # Libraries for phonons
   - phonolammps
