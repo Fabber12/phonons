@@ -1,0 +1,35 @@
+#%Module1.0#####################################################################
+##
+## LAMMPS – CUDA 12.6 + OpenMPI 4.1.2 + libtorch + MACE
+##
+
+proc ModulesHelp {} {
+    puts stderr "LAMMPS built with CUDA 12.6, OpenMPI 4.1.2, libtorch, MACE."
+}
+
+module-whatis "LAMMPS – CUDA 12.6 | OpenMPI 4.1.2 | MACE"
+
+# Load dependencies
+module load gcc/12.2.0
+module load cuda/12.6
+module load openmpi/4.1.2
+
+# To adapt with your path
+setenv PHONONS_HOME /opt/packages/phonons
+setenv LAMMPS_HOME $env(PHONONS_HOME)/lammps
+
+# Executables
+prepend-path PATH $env(LAMMPS_HOME)/build-mace
+
+# Shared libraries
+prepend-path LD_LIBRARY_PATH $env(LAMMPS_HOME)/build-mace
+prepend-path LD_LIBRARY_PATH $env(LAMMPS_HOME)/build-mace/lib
+prepend-path LD_LIBRARY_PATH $env(PHONONS_HOME)/libtorch/lib
+
+# Python API
+prepend-path PYTHONPATH $env(LAMMPS_HOME)/python
+
+# Conda
+if {[module-info mode] == "load"} {
+    puts stderr "Tip: run 'conda activate phonons' to load phonon environment."
+}
