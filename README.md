@@ -15,7 +15,7 @@ Building all the software needed for this project is quite tricky. Let's go step
 3. Clone/download MACE-compatible LAMMPS from: [https://github.com/ACEsuit/lammps](https://github.com/ACEsuit/lammps).
 4. Build LAMMPS by running `build-lammps.sh`. Have a look at the file but do **not** change the CMake options, except for `KOKKOS_ARCH_` options to be consistent with your GPU architecture! Feel free to reduce the number of processes of `make` (the `-j` flag).
 5. Create a modulefile. An example is provided in `phonons-modulefile`.
-6. Load your modulefile and check that the everything is working correctely by running `mpirun -np 2 python check-sanity.py`.
+6. Load your modulefile and check that everything is working correctely by running `mpirun -np 2 python check-sanity.py`.
 
 
 You should be good to go!
